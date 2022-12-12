@@ -3,18 +3,14 @@
 
 <!--  created with free sitemap generation system www.sitemapxml.jp  --> 
 <url>
-  <loc>https://ryoktb.github.io/</loc>
+  <loc>https://ryoktb.github.io/index.html</loc>
   <priority>1.0</priority>
-  <lastmod>2022-12-05T20:10:12+09:00</lastmod>
+  <lastmod>2022-12-05T23:22:57+09:00</lastmod>
 </url>
 <url>
   <loc>https://ryoktb.github.io/index.en.html</loc>
   <priority>0.8</priority>
-  <lastmod>2022-12-05T20:10:12+09:00</lastmod>
-</url>
-<url>
-  <loc>https://ryoktb.github.io/index.en.html/index.html</loc>
-  <priority>0.7</priority>
+  <lastmod>2022-12-05T23:22:57+09:00</lastmod>
 </url>
 
 </urlset>

@@ -123,6 +123,22 @@
             color: #FF3333; /* Red color for "招待講演" */
             font-weight: bold; /* Optional: make it bold */
         }
+
+        .section-separator {
+          margin: 20px 0; /* Adjust margin as needed */
+          border-top: 1px solid #ddd; /* Thin gray line */
+      }
+
+      .certificate-list {
+        list-style-type: disc; /* Use bullet points for certificates */
+        margin-left: 20px;
+    }
+
+    .certificate-note {
+        font-size: smaller; /* Make the note smaller */
+        color: #888; /* Lighter gray color for the note */
+        margin-top: 5px;
+    }
     </style>
 </head>
 
@@ -139,6 +155,7 @@
                     </ul>
                 </li>
                 <li><a href="#awards">受賞歴</a></li>
+                <li><a href="#certificates">資格</a></li>
             </ul>
         </nav>
         [ 日本語 | <a href="./index.en.html">English</a> ]
@@ -155,7 +172,7 @@
                 </ul>
             </li>
         </ul>
-
+        <div class="section-separator"></div>  <!-- Separator after Profile -->
         <h2>Publications</h2>
         <h3 id="international">International</h3>
         <div class="publication-item">
@@ -174,11 +191,28 @@
         <div id="domesticPublications">
           <!-- Domestic publications will be dynamically added here -->
         </div>
-
+        <div class="section-separator"></div>  <!-- Separator after Publications -->
         <h2 id="awards">Awards</h2>
         <ul id="awardsList">
             <!-- Awards will be dynamically added here -->
         </ul>
+
+        <div class="section-separator"></div>
+
+        <h2 id="certificates">Certificate</h2>
+        <ul class="certificate-list">
+            <li>データベーススペシャリスト試験合格</li>
+            <li>情報処理安全確保支援士試験合格</li>
+            <li>応用情報技術者試験合格</li>
+            <li>日本商工会議所簿記検定2級</li>
+            <li>Dataiku Core Designer</li>
+            <li>Dataiku Advanced Designer</li>
+            <li>Dataiku ML Practitioner</li>
+            <li>Dataiku Developer</li>
+            <li>Dataiku MLOps Practitioner</li>
+        </ul>
+        <p class="certificate-note">※2024年12月時点</p>
+
 
     </div>
 

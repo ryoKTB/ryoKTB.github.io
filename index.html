@@ -139,6 +139,31 @@
         color: #888; /* Lighter gray color for the note */
         margin-top: 5px;
     }
+
+    #scrollToTop {
+        position: fixed;
+        bottom: 20px; /* 画面下からの距離 */
+        right: 20px; /* 画面右からの距離 */
+        width: 50px; /* ボタンの幅 */
+        height: 50px; /* ボタンの高さ */
+        font-size: 24px; /* ボタン内の文字サイズ */
+        background-color: #005BB5; /* ボタンの背景色 */
+        color: #fff; /* ボタンの文字色 */
+        border: none;
+        border-radius: 50%; /* ボタンを丸くする */
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ボタンの影 */
+        display: none; /* 初期状態では非表示 */
+        z-index: 1000;
+        text-align: center;
+        line-height: 50px; /* ボタン内の文字を中央揃え */
+    }
+    
+    #scrollToTop:hover {
+        background-color: #003f7d; /* ボタンにマウスを乗せたときの背景色 */
+    }
+  
+  
     </style>
 </head>
 
@@ -148,7 +173,7 @@
             <ul>
                 <li><a href="#profile">プロフィール</a></li>
                 <li>
-                    <a href="#">出版物</a>
+                    <a href="#publication">出版物</a>
                     <ul class="dropdown-menu">
                         <li><a href="#international">International</a></li>
                         <li><a href="#domestic">Domestic</a></li>
@@ -173,7 +198,7 @@
             </li>
         </ul>
         <div class="section-separator"></div>  <!-- Separator after Profile -->
-        <h2>Publications</h2>
+        <h2 id="publication">Publications</h2>
         <h3 id="international">International</h3>
         <div class="publication-item">
           <div class="publication-details">
@@ -213,7 +238,7 @@
         </ul>
         <p class="certificate-note">※2024年12月時点</p>
 
-
+        <button id="scrollToTop">∧</button>
     </div>
 
     <script>
@@ -327,6 +352,29 @@
 
         renderPublications();
         renderAwards();
+
+        // ページ読み込み後にスクリプトを実行
+        document.addEventListener('DOMContentLoaded', () => {
+          const scrollToTopBtn = document.getElementById('scrollToTop');
+
+          // スクロールイベントを監視
+          window.addEventListener('scroll', () => {
+              if (window.scrollY > 200) {
+                  scrollToTopBtn.style.display = 'block'; // ボタンを表示
+              } else {
+                  scrollToTopBtn.style.display = 'none'; // ボタンを非表示
+              }
+          });
+
+          // ボタンがクリックされたとき、ページ最上部までスクロール
+          scrollToTopBtn.addEventListener('click', () => {
+              window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth' // スムーズなスクロール
+              });
+          });
+        });
+
 
     </script>
 </body>

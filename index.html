@@ -171,7 +171,7 @@
     <div class="container">
         <nav>
             <ul>
-                <li><a href="#profile">プロフィール</a></li>
+                <li><a href="#profile">経歴</a></li>
                 <li>
                     <a href="#publication">出版物</a>
                     <ul class="dropdown-menu">
@@ -188,7 +188,7 @@
 
         <h2 id="profile">Profile</h2>
         <ul>
-            <li>修士（情報理工学）：東京大学大学院 情報理工学系研究科 電子情報学専攻</li>
+            <li><b>修士（情報理工学）</b>：東京大学大学院 情報理工学系研究科 電子情報学専攻</li>
             <li>履歴：
                 <ul>
                     <li>2022/04 - 2024/03: 修士（情報理工学）, <a href="http://www.i.u-tokyo.ac.jp" target="_blank">東京大学大学院 情報理工学系研究科 電子情報学専攻</a></li>
@@ -250,7 +250,7 @@
         const domesticPublicationsData = [
             {
                 title: "Graph Neural Networks を用いた不動産物件の住み心地の予測・分析",
-                authors: "北林遼大 , 笠西哲 (東大), 楢原太郎（NJIT）, 山崎俊彦（東大）",
+                authors: "北林遼大, 笠西哲（東大）, 楢原太郎（NJIT）, 山崎俊彦（東大）",
                 venue: "IDRユーザフォーラム2021, オンライン, 11月, 2021年",
                 link: "https://www.nii.ac.jp/dsc/idr/userforum/poster/IDR-UF2021_P05.pdf",
                 award: "優秀賞，企業賞，DBSJ特別賞のトリプル受賞"
@@ -258,21 +258,21 @@
             // Add other domestic publications here...
             {
               title: "【招待講演】住居用不動産間取り画像を用いた住み心地推定および街の魅力解析への応用",
-              authors: "北林遼大 , 笠西哲 (東大), 楢原太郎（NJIT）, 山崎俊彦（東大）",
+              authors: "北林遼大, 笠西哲（東大）, 楢原太郎（NJIT）, 山崎俊彦（東大）",
               venue: "第14回データ工学と情報マネジメントに関するフォーラム (DEIM 2022), オンライン, 2-3月, 2022年",
               link: "https://proceedings-of-deim.github.io/DEIM2022/papers/C33-1.pdf"
             },
             // ...more publications
             {
               title: "不動産間取り画像を用いた住み心地要因の分析・可視化",
-              authors: "北林遼大(東大), 楢原太郎（NJIT）, 山崎俊彦（東大）",
+              authors: "北林遼大（東大）, 楢原太郎（NJIT）, 山崎俊彦（東大）",
               venue: "情報処理学会 第84回全国大会 (IPSJ 2022), オンライン, 3月, 2022年",
               link: "https://ipsj.ixsq.nii.ac.jp/ej/?action=repository_uri&item_id=220852&file_id=1&file_no=1"
             },
             // ...more publications
             {
               title: "【招待講演】不動産間取り画像を用いた物件の住み心地予測と街魅力分析への応用",
-              authors: "北林遼大(東大), 楢原太郎（NJIT）, 山崎俊彦（東大）",
+              authors: "北林遼大（東大）, 楢原太郎（NJIT）, 山崎俊彦（東大）",
               venue: "IDRユーザフォーラム2022, オンライン, 12月, 2022年",
               link: "https://www.nii.ac.jp/dsc/idr/userforum/slide/IDR-UF2022_Kitabayashi.pdf"
             },
@@ -303,19 +303,23 @@
 
         const awardsData = [
             {
-                name: "優秀賞，企業賞，DBSJ特別賞のトリプル受賞（2021年11月）",
+                name: "優秀賞，企業賞，DBSJ特別賞のトリプル受賞",
+                place: "IDRユーザフォーラム、2021年11月",
                 link: "https://www.nii.ac.jp/dsc/idr/userforum/2021.html"
             },
             {
-                name: "優秀卒業論文賞（2022年4月）",
+                name: "優秀卒業論文賞",
+                place: "東京大学工学部電子情報工学科、2022年3月",
                 link: "https://www.cvm.t.u-tokyo.ac.jp/news/20220325-2.html"
             },
             {
-                name: "学生プレゼンテーション賞（2023年3月）",
+                name: "学生プレゼンテーション賞",
+                place: "DEIM、2023年3月",
                 link: "https://event.dbsj.org/deim2023/post/awards.html"
             },
             {
-                name: "学生プレゼンテーション賞（2024年3月）",
+                name: "学生プレゼンテーション賞",
+                place: "DEIM、2024年3月",
                 link: "https://confit.atlas.jp/guide/event/deim2024/static/awards"
             }
         ];
@@ -324,28 +328,32 @@
         function renderPublications() {
             domesticPublicationsContainer.innerHTML = '';
             domesticPublicationsData.forEach(publication => {
-              const title = publication.title.replace(/【招待講演】/g, '<span class="invited-talk">【招待講演】</span>'); // Add class to highlight
-              const publicationDiv = document.createElement('div');
-              publicationDiv.classList.add('publication-item');
-              publicationDiv.innerHTML = `
-                <div class="publication-details">
-                  <b>${title}</b><br>
-                  ${publication.authors}<br>
-                  ${publication.venue}<br>
-                  ${publication.link ? `<a href="${publication.link}" target="_blank">${publication.link.includes('pdf') ? '[Paper]' : '[Link]'}</a>` : ''}
-                  ${publication.award ? `<br>&#x1f3c6; <b><font color='#FF3333'>${publication.award}</font></b>` : ''}
-                </div>
-              `;
-              domesticPublicationsContainer.appendChild(publicationDiv);
+                const title = publication.title.replace(/【招待講演】/g, '<span class="invited-talk">【招待講演】</span>'); // Add class to highlight
+                // Replace "北林遼大" in authors with bolded version
+                const authors = publication.authors.replace(/北林遼大/g, '<b>北林遼大</b>'); 
+        
+                const publicationDiv = document.createElement('div');
+                publicationDiv.classList.add('publication-item');
+                publicationDiv.innerHTML = `
+                    <div class="publication-details">
+                        <b>${title}</b><br>
+                        ${authors}<br>
+                        ${publication.venue}<br>
+                        ${publication.link ? `<a href="${publication.link}" target="_blank">${publication.link.includes('pdf') ? '[Paper]' : '[Link]'}</a>` : ''}
+                        ${publication.award ? `<br>&#x1f3c6; <b><font color='#FF3333'>${publication.award}</font></b>` : ''}
+                    </div>
+                `;
+                domesticPublicationsContainer.appendChild(publicationDiv);
             });
         }
+      
 
         function renderAwards() {
           awardsList.innerHTML = '';
           awardsData.forEach(award => {
             const awardItem = document.createElement('li');
             awardItem.classList.add('award-item');
-            awardItem.innerHTML = `<b>${award.name}</b> <a href="${award.link}" target="_blank">[Link]</a>`;
+            awardItem.innerHTML = `<b>${award.name}</b>（${award.place}） <a href="${award.link}" target="_blank">[Link]</a>`;
             awardsList.appendChild(awardItem);
           });
         }
